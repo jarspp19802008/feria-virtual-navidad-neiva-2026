@@ -96,7 +96,7 @@ function connectUser(user){if(startedUid===user.uid)return;startedUid=user.uid;c
   visitsRef.on('value',updateVisitCount,error=>setFirebaseNotice('No pudimos leer el contador. Revisa la configuración de Firebase.'));
   visitsRef.child(bogotaDate()).child(currentUid).transaction(current=>current===true?undefined:true).catch(()=>setFirebaseNotice('No pudimos registrar esta visita. Intenta de nuevo más tarde.'));
   db.ref('likesByStore').on('value',snapshot=>{likeState={};likeCounts={};snapshot.forEach(store=>{likeCounts[store.key]=store.numChildren();if(currentUid&&store.hasChild(currentUid))likeState[store.key]=true});render()},()=>setFirebaseNotice('No pudimos cargar los “Me gusta”.'));
-  db.ref('approvedShops').on('value',snapshot=>{approvedShops=[];snapshot.forEach(item=>approvedShops.push({...item.val(),id:item.key}));render()},()=>setFirebaseNotice('No pudimos cargar los comercios aprobados.'));
+  db.ref('approvedShops').on('value',snapshot=>{approvedShops=[];snapshot.forEach(item=>{approvedShops.push({...item.val(),id:item.key})});render()},()=>setFirebaseNotice('No pudimos cargar los comercios aprobados.'));
   render();
 }
 auth.onAuthStateChanged(user=>{if(user){connectUser(user)}else{setFirebaseNotice('Conectando…');auth.signInAnonymously().catch(()=>setFirebaseNotice('No se pudo conectar. Hay que habilitar el acceso anónimo en Firebase.'))}});
