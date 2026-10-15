@@ -9,7 +9,7 @@
   }
   function create(options) {
     const { auth, db } = options;
-    const state = { uid: null, google: false, ready: false, likes: {}, counts: {}, legacyCounts: {}, pending: new Set() };
+    const state = { uid: null, google: false, ready: false, likes: {}, counts: {}, legacyCounts: {}, legacyReady: false, pending: new Set() };
     let account = null, mounted = null, ownListeners = [], storeKeys = [], signingIn = false;
     let generation = 0, legacyLoaded = false;
     const report = text => { if (mounted) mounted.querySelector('[data-integrity-message]').textContent = text; options.notice?.(text); };
@@ -23,7 +23,7 @@
     function mount(id) {
       mounted = document.getElementById(id);
       if (!mounted) return;
-      mounted.innerHTML = '<div class="integrity-account"><div><strong>Apoyos para el premio</strong><span data-account-status></span></div><button type="button" data-google-login>Ingresar con Google</button><button type="button" data-google-logout hidden>Salir de Google</button></div><p class="integrity-explanation">Un apoyo por cuenta Google y comercio durante el concurso. Los nuevos apoyos se conservan con fecha del servidor y no se pueden retirar. Una cuenta no acredita una persona única.</p><details class="integrity-history"><summary>Sobre los conteos anteriores y el uso de datos</summary><p>Los likes anónimos anteriores se conservan como historial y no se suman a los apoyos autenticados para el premio. Al ingresar, Google y Firebase gestionan tu autenticación; la feria guarda el identificador de tu cuenta y la fecha, sin publicar tu correo. Las visitas nuevas cuentan cuentas Google distintas que ingresan, no todas las aperturas de la página.</p></details><p data-integrity-message role="status" aria-live="polite"></p>';
+      mounted.innerHTML = '<div class="integrity-account"><div><strong>Apoya al comercio local</strong><span data-account-status></span></div><button type="button" data-google-login>Ingresar con Google</button><button type="button" data-google-logout hidden>Salir de Google</button></div><p class="integrity-explanation">Un apoyo por cuenta Google y comercio durante el concurso. Los nuevos apoyos se conservan con fecha del servidor y no se pueden retirar. Una cuenta no acredita una persona única.</p><details class="integrity-history"><summary>Sobre los conteos anteriores y el uso de datos</summary><p>El total visible conserva los likes históricos y añade los nuevos apoyos con Google. El desglose distingue el historial anónimo, que no puede certificarse, de los nuevos apoyos autenticados. Una misma persona podría haber participado en ambas etapas; el total no acredita personas únicas. Al ingresar, Google y Firebase gestionan tu autenticación; la feria guarda el identificador de tu cuenta y la fecha, sin publicar tu correo. Las visitas conservan su base histórica y añaden cuentas Google que ingresan en la nueva etapa. El total combina dos métodos de conteo y no acredita visitantes únicos.</p></details><p data-integrity-message role="status" aria-live="polite"></p>';
       mounted.querySelector('[data-google-login]').onclick = login;
       mounted.querySelector('[data-google-logout]').onclick = async () => {
         try { await auth.signOut(); report('Sesión cerrada. Puedes seguir explorando la feria.'); }
@@ -127,7 +127,7 @@
         }
         if (!legacyLoaded) {
           legacyLoaded = true;
-          db.ref('likesByStore').once('value').then(snap => { snap.forEach(shop => { state.legacyCounts[shop.key] = shop.numChildren(); }); emit(); }).catch(() => {});
+          db.ref('likesByStore').once('value').then(snap => { snap.forEach(shop => { state.legacyCounts[shop.key] = shop.numChildren(); }); state.legacyReady = true; emit(); }).catch(() => {});
           db.ref('visitsByDay').once('value').then(snap => { let n = 0; snap.forEach(day => { n += day.numChildren(); }); options.onLegacyVisits?.(n); }).catch(() => {});
         }
         try {
