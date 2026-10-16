@@ -130,7 +130,90 @@ function municipalCalendar(){const target=root.querySelector('#ag-alcaldia');tar
 </style>
 </div>
 </section>
-<section id="institucional" class="section"><h2>Administración Municipal</h2><p class="lead">La feria se presenta bajo el marco institucional de la Alcaldía de Neiva, con participación de la Secretaría de Cultura, dependencia municipal encargada de promover programas y proyectos culturales y de articular acciones con los sectores socioeconómicos del municipio.</p><div class="institution-grid"><article class="institution-card"><a class="institution-name" href="https://www.alcaldianeiva.gov.co/Paginas/Index.aspx" target="_blank" rel="noopener noreferrer">Alcaldía de Neiva <span aria-hidden="true">↗</span></a><p>Entidad municipal responsable del marco institucional de la iniciativa.</p></article><article class="institution-card"><a class="institution-name" href="https://www.alcaldianeiva.gov.co/NuestraAlcaldia/Dependencias/Paginas/Secretaria-de-Cultura.aspx" target="_blank" rel="noopener noreferrer">Secretaría de Cultura <span aria-hidden="true">↗</span></a><p>Dependencia participante y articuladora de la iniciativa cultural.</p></article></div></section>
+<section id="institucional" class="section"><div id="neiva-en-accion">
+<style>
+#neiva-en-accion{padding:20px 8px;font-family:Manrope,Arial,sans-serif;color:#103d2f;color-scheme:light}
+#neiva-en-accion *{box-sizing:border-box}
+#neiva-en-accion .na-surface{background:#f7f7f0;border:1px solid #e2e8df;border-radius:22px;padding:28px;max-width:850px;margin:auto}
+#neiva-en-accion .na-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+#neiva-en-accion .na-kicker{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#b93440;margin:0 0 8px}
+#neiva-en-accion h2{font:800 27px/1.2 Manrope,Arial,sans-serif;letter-spacing:-.6px;color:#103d2f;margin:0}
+#neiva-en-accion p{font-size:13px;line-height:1.55;color:#65736b;margin:9px 0 0}
+#neiva-en-accion .na-trigger{display:inline-flex;align-items:center;gap:10px;min-height:44px;border:0;border-radius:30px;padding:12px 19px;font:700 13px Manrope,Arial,sans-serif;color:#fffefa;background:#176345;box-shadow:0 6px 15px #17634520}
+#neiva-en-accion .na-trigger:hover{background:#103d2f}
+#neiva-en-accion .na-trigger i{width:17px;height:17px}
+#neiva-en-accion .na-official{display:flex;gap:18px;flex-wrap:wrap;padding:17px 0;border-bottom:1px solid #e2e8df;margin-bottom:20px}
+#neiva-en-accion a{color:#176345;text-decoration:none;font-weight:700}
+#neiva-en-accion a:hover{text-decoration:underline}
+#neiva-en-accion a:focus-visible,#neiva-en-accion button:focus-visible,#neiva-en-accion summary:focus-visible{outline:3px solid #d8ad57;outline-offset:4px}
+#neiva-en-accion .na-official a{font-size:12px}
+#neiva-en-accion .na-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:start}
+#neiva-en-accion details{background:#fffefa;border:1px solid #e2e8df;border-radius:15px;overflow:hidden}
+#neiva-en-accion summary{padding:17px 14px;list-style:none;display:flex;align-items:center;gap:9px;min-height:60px;font-size:13px;font-weight:800}
+#neiva-en-accion summary::-webkit-details-marker{display:none}
+#neiva-en-accion .na-icon{width:30px;height:30px;display:grid;place-items:center;background:#edf2e8;color:#176345;border-radius:10px;flex-shrink:0}
+#neiva-en-accion .na-icon i{width:17px;height:17px}
+#neiva-en-accion .na-plus{margin-left:auto;font-size:20px;font-weight:400;color:#b93440}
+#neiva-en-accion details[open] .na-plus{transform:rotate(45deg)}
+#neiva-en-accion .na-links{padding:0 14px 14px}
+#neiva-en-accion .na-links a{display:flex;gap:8px;justify-content:space-between;padding:11px 0;border-top:1px solid #edf0e9;font-size:12px;line-height:1.5}
+#neiva-en-accion .na-links span{color:#b93440}
+#neiva-en-accion .na-note{font-size:11px;margin-top:16px}
+#neiva-en-accion [hidden]{display:none!important}
+@media(max-width:560px){#neiva-en-accion .na-surface{padding:20px 16px}#neiva-en-accion .na-groups{grid-template-columns:1fr}#neiva-en-accion h2{font-size:23px}#neiva-en-accion .na-top{gap:14px}}
+
+#neiva-en-accion .na-glyph{display:inline-block;line-height:1;font-size:19px}#neiva-en-accion .cursor-interaction{cursor:pointer}#neiva-en-accion{padding:0}#neiva-en-accion .na-surface{max-width:none}#neiva-en-accion .na-trigger .na-glyph{flex-shrink:0}
+</style>
+<section class="na-surface" aria-label="Neiva en Acción">
+  <div class="na-top"><div class="na-kicker">Conecta con nuestra ciudad</div><button class="na-trigger cursor-interaction" type="button" aria-expanded="true" aria-controls="na-categories"><span class="na-glyph" aria-hidden="true">✦</span>Neiva en Acción<span class="na-glyph" aria-hidden="true">⌄</span></button><p>La cultura, la gestión y los lugares que nos unen.</p><a class="na-tiktok cursor-interaction" href="https://www.tiktok.com/@germancasaguab" target="_blank" rel="noopener noreferrer"><span class="na-tiktok-icon" aria-hidden="true">♪</span><span><strong>Ver en TikTok</strong><small>@germancasaguab</small></span><span class="na-glyph" aria-hidden="true">↗</span></a></div>
+  <div class="na-official"><a href="https://www.alcaldianeiva.gov.co/Paginas/Index.aspx" target="_blank" rel="noopener noreferrer">Alcaldía de Neiva ↗</a><a href="https://www.alcaldianeiva.gov.co/NuestraAlcaldia/Dependencias/Paginas/Secretaria-de-Cultura.aspx" target="_blank" rel="noopener noreferrer">Secretaría de Cultura ↗</a></div>
+  <div id="na-categories">
+    <div class="na-groups">
+      <details name="neiva-action-groups"><summary class="cursor-interaction"><span class="na-icon"><span class="na-glyph" aria-hidden="true">♫</span></span>Cultura<span class="na-plus" aria-hidden="true">+</span></summary><div class="na-links"><a href="https://www.alcaldianeiva.gov.co/NuestraAlcaldia/Dependencias/Paginas/Secretaria-de-Cultura.aspx" target="_blank" rel="noopener noreferrer">Secretaría de Cultura<span aria-hidden="true">↗</span></a><a href="https://www.alcaldianeiva.gov.co/NuestraAlcaldia/Dependencias/Paginas/Programa%20Cultura.aspx" target="_blank" rel="noopener noreferrer">Programas culturales<span aria-hidden="true">↗</span></a></div></details>
+      <details name="neiva-action-groups"><summary class="cursor-interaction"><span class="na-icon"><span class="na-glyph" aria-hidden="true">▥</span></span>Gestión municipal<span class="na-plus" aria-hidden="true">+</span></summary><div class="na-links"><a href="https://www.alcaldianeiva.gov.co/Gestion/Paginas/Planeacion%2C-Gestion-y-Control.aspx" target="_blank" rel="noopener noreferrer">Planeación y gestión<span aria-hidden="true">↗</span></a><a href="https://www.alcaldianeiva.gov.co/Conectividad/Paginas/Rendicion-de-Cuentas.aspx" target="_blank" rel="noopener noreferrer">Rendición de cuentas<span aria-hidden="true">↗</span></a></div></details>
+      <details name="neiva-action-groups"><summary class="cursor-interaction"><span class="na-icon"><span class="na-glyph" aria-hidden="true">⌖</span></span>Turismo<span class="na-plus" aria-hidden="true">+</span></summary><div class="na-links"><a href="https://www.alcaldianeiva.gov.co/MiMunicipio/Paginas/Turismo.aspx" target="_blank" rel="noopener noreferrer">Rutas y turismo en Neiva<span aria-hidden="true">↗</span></a><a href="https://www.alcaldianeiva.gov.co/MiMunicipio/Paginas/Calendario-de-Eventos.aspx" target="_blank" rel="noopener noreferrer">Calendario de eventos<span aria-hidden="true">↗</span></a></div></details>
+    </div>
+    <p class="na-note">Los enlaces abren el portal oficial de la Alcaldía en otra pestaña. La información se consulta directamente en la fuente institucional.</p>
+  </div>
+</section>
+<script>
+(()=>{const root=document.getElementById('neiva-en-accion');const button=root.querySelector('.na-trigger');const panel=root.querySelector('#na-categories');button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));panel.hidden=!open;});const groups=[...root.querySelectorAll('details')];groups.forEach((group,index)=>{group.open=index===0;group.addEventListener('toggle',()=>{if(group.open)groups.forEach(other=>{if(other!==group)other.open=false;});});});})();
+</script>
+<style>
+#neiva-en-accion .na-surface{background:radial-gradient(ellipse at 90% 0%,#e8eddf 0,transparent 55%),#f7f7f0;padding:30px 24px;border-radius:24px}
+#neiva-en-accion .na-top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;padding:3px 0 8px}
+#neiva-en-accion .na-kicker{margin-bottom:15px;color:#a82e3a;font-size:10px;letter-spacing:.17em}
+#neiva-en-accion .na-trigger{font-size:clamp(20px,4vw,28px);padding:18px 26px;border-radius:19px;background:linear-gradient(130deg,#1e7353,#103d2f);box-shadow:0 10px 22px #174b3b25,inset 0 1px #ffffff25;gap:16px;transition:transform .2s,box-shadow .2s}
+#neiva-en-accion .na-trigger:hover{transform:translateY(-2px);box-shadow:0 13px 26px #174b3b35}
+#neiva-en-accion .na-trigger i{width:20px;height:20px;flex-shrink:0}
+#neiva-en-accion .na-trigger .na-glyph:last-child{transition:transform .25s}
+#neiva-en-accion .na-trigger[aria-expanded="true"] .na-glyph:last-child{transform:rotate(180deg)}
+#neiva-en-accion .na-top p{font-size:12px;margin:13px 0 16px;max-width:330px}
+#neiva-en-accion .na-tiktok{display:inline-flex;align-items:center;justify-content:center;gap:11px;padding:9px 15px;border-radius:14px;background:#202026;color:#fffefa;box-shadow:0 5px 12px #20202614;text-decoration:none;transition:transform .2s}
+#neiva-en-accion .na-tiktok:hover{transform:translateY(-2px);text-decoration:none}
+#neiva-en-accion .na-tiktok-icon{font-size:29px;line-height:1;text-shadow:-2px 0 #25f4ee,2px 1px #fe2c55}
+#neiva-en-accion .na-tiktok strong{font-size:12px;display:block;text-align:left}
+#neiva-en-accion .na-tiktok small{display:block;font-size:11px;font-weight:400;color:#dedee5;text-align:left;margin-top:2px}
+#neiva-en-accion .na-tiktok i{width:15px;height:15px;margin-left:5px}
+#neiva-en-accion .na-official{justify-content:center;margin-top:10px;margin-bottom:16px;padding:13px 0;gap:10px 20px}
+#neiva-en-accion .na-groups{gap:12px}
+#neiva-en-accion details{border:1px solid #e1e6db;border-radius:17px;box-shadow:0 3px 10px #174b3b05;transition:transform .2s,box-shadow .2s,border-color .2s}
+#neiva-en-accion details:hover{transform:translateY(-3px);box-shadow:0 9px 20px #174b3b12}
+#neiva-en-accion details[open]{border-color:#c3d2bf;box-shadow:0 9px 20px #174b3b12}
+#neiva-en-accion summary{padding:17px 13px;gap:8px;position:relative;flex-wrap:wrap}
+#neiva-en-accion details[open] summary{background:linear-gradient(120deg,#edf3e8,#fffefa)}
+#neiva-en-accion .na-icon{width:34px;height:34px;border-radius:12px;background:#e8efdf}
+#neiva-en-accion .na-plus{transition:transform .22s}
+#neiva-en-accion .na-links{animation:na-reveal .26s ease-out}
+#neiva-en-accion .na-links a{transition:padding .18s,color .18s;min-height:44px;align-items:center}
+#neiva-en-accion .na-links a:hover{padding-left:4px;color:#a82e3a;text-decoration:none}
+#neiva-en-accion .na-note{text-align:center;max-width:500px;margin:18px auto 0;font-size:11px}
+#neiva-en-accion #na-categories:not([hidden]){animation:na-reveal .3s ease-out}
+@keyframes na-reveal{from{opacity:0;transform:translateY(-9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){#neiva-en-accion .na-groups{grid-template-columns:1fr}#neiva-en-accion .na-surface{padding:26px 17px}#neiva-en-accion summary{min-height:67px;font-size:14px}#neiva-en-accion .na-links{padding-left:20px;padding-right:20px}}
+@media(prefers-reduced-motion:reduce){#neiva-en-accion *{animation:none!important;transition:none!important}}
+</style>
+</div></section>
 <section id="inscripcion" class="section"><div class="enroll-heading"><div><h2>Inscripción de comercios</h2><p class="lead">Registra tu negocio. La organización revisará la solicitud antes de publicar la vitrina.</p></div><div class="participation-actions"><button class="btn participation-link" type="button" onclick="openParticipationInfo()" aria-haspopup="dialog">Requisitos de participación</button><button id="toggleEnrollment" class="btn primary" type="button" aria-expanded="false" aria-controls="enrollPanel" onclick="toggleEnrollment()">📝 Inscribir mi comercio</button></div></div><div id="enrollPanel" class="enroll-panel hidden"><div class="enroll-preview">🔒 Cada inscripción queda pendiente de aprobación</div><div class="participation-form-note"><span>Antes de inscribirte, consulta las condiciones de participación.</span><button class="btn participation-link" type="button" onclick="openParticipationInfo()" aria-haspopup="dialog">Requisitos de participación</button></div><form id="merchantForm"><div class="enroll-grid"><div class="enroll-field"><label for="bizName">Nombre del comercio *</label><input id="bizName" name="bizName" required maxlength="80" placeholder="Ej. Artesanías del Huila"></div><div class="enroll-field"><label for="bizCategory">Categoría *</label><select id="bizCategory" name="bizCategory" required><option value="">Selecciona una categoría</option><option>Moda</option><option>Calzado</option><option>Belleza</option><option>Regalos</option><option>Gastronomía</option><option>Tecnología</option><option>Hogar</option><option>Otros</option></select></div><div class="enroll-field wide"><label for="bizDescription">¿Qué productos o servicios ofrece? *</label><textarea id="bizDescription" name="bizDescription" required maxlength="400" placeholder="Cuéntanos brevemente qué encontrarán las personas en tu negocio."></textarea></div><div class="enroll-field"><label for="bizAddress">Dirección o sector en Neiva *</label><input id="bizAddress" name="bizAddress" required maxlength="120" placeholder="Dirección comercial o barrio"></div><div class="enroll-field"><label for="bizWhatsapp">WhatsApp comercial *</label><input id="bizWhatsapp" name="bizWhatsapp" type="tel" required maxlength="25" placeholder="Número de contacto del negocio"></div><div class="enroll-field"><label for="bizInstagram">Instagram (opcional)</label><input id="bizInstagram" name="bizInstagram" type="url" placeholder="https://instagram.com/tucomercio"></div><div class="enroll-field"><label for="bizFacebook">Facebook (opcional)</label><input id="bizFacebook" name="bizFacebook" type="url" placeholder="Enlace de la página del negocio"></div><div class="enroll-field"><label for="bizTiktok">TikTok (opcional)</label><input id="bizTiktok" name="bizTiktok" type="url" placeholder="https://tiktok.com/@tucomercio"></div></div><div class="enroll-note">Tu solicitud se enviará para revisión privada. El comercio solo aparecerá en la feria cuando la administradora lo apruebe.</div><label class="participation-check"><input id="bizParticipationRead" type="checkbox" required> He leído <button type="button" class="btn participation-link" onclick="openParticipationInfo()" aria-haspopup="dialog">Requisitos de participación</button> y conozco las condiciones de participación.</label><label class="enroll-hint"><input id="bizConsent" type="checkbox" required> Autorizo el uso de estos datos para gestionar mi inscripción y, si se aprueba, publicar en la feria la información comercial y de contacto. La organización seleccionará y cargará la foto oficial del comercio.</label><button class="btn primary enroll-submit" id="submitApplication" type="submit">📝 Enviar para revisión</button><p id="applicationMessage" class="enroll-hint" role="status" aria-live="polite"></p></form></div></section>
 </main>
 <dialog id="participationInfo" class="participation-dialog" aria-labelledby="participationTitle"><button type="button" class="participation-close" onclick="document.getElementById('participationInfo').close()" aria-label="Cerrar información">×</button><h2 id="participationTitle">Requisitos de participación</h2><p>Consulta estas condiciones antes de inscribir tu comercio en la feria.</p><ol><li><strong>Ser comerciante</strong> y contar con un punto físico ubicado en la ciudad de Neiva.</li><li>El punto físico debe estar ubicado <strong>entre las carreras 2 y 9, y entre las calles 2 y 21</strong>.</li><li>Inscribirse a través de la página web de la Alcaldía y proporcionar <strong>información veraz y actualizada</strong>.</li><li><strong>Autorizar, cuando corresponda, la publicación de datos e imágenes.</strong></li><li>Atender las <strong>fechas y reglas oficiales del concurso de decoración</strong>.</li></ol><div class="participation-actions"><button type="button" class="btn primary" onclick="document.getElementById('participationInfo').close();openEnrollment()">Ir al formulario de inscripción →</button><button type="button" class="btn secondary" onclick="document.getElementById('participationInfo').close()">Cerrar</button></div></dialog>
