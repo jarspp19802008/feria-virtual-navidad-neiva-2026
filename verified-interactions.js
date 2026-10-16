@@ -3,6 +3,17 @@
   'use strict';
   const appCheckKey = '6LcX9-8tAAAAAO2wohzronQG8fwNiK20zNv4RPyD'; // Public, domain-restricted site key.
   function configureAppCheck() {
+    if (new URLSearchParams(location.search).get('diagnostico') === '1') {
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = async function(input, init) {
+        const response = await originalFetch(input, init);
+        const url = typeof input === 'string' ? input : input.url || String(input);
+        if (url.includes('firebaseappcheck.googleapis.com') && !response.ok) {
+          response.clone().json().then(body => console.warn('Feria App Check diagnostic: ' + JSON.stringify({status: response.status, error: body.error?.message, code: body.error?.status}))).catch(() => {});
+        }
+        return response;
+      };
+    }
     if (appCheckKey && firebase.appCheck) {
       firebase.appCheck().activate(new firebase.appCheck.ReCaptchaEnterpriseProvider(appCheckKey), true);
     }
