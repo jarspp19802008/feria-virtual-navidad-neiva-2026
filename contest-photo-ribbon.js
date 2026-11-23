@@ -15,7 +15,7 @@
   const button = section.querySelector('button');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reduced.matches, hovered = false, focused = false, visible = true;
-  let last = 0, frame = 0, signature = '', interactedUntil = 0;
+  let last = 0, frame = 0, signature = '', interactedUntil = 0, offset = 0;
   function updateButton() {
     button.textContent = paused ? 'Reanudar movimiento' : 'Pausar movimiento';
     button.setAttribute('aria-pressed', String(paused));
@@ -23,11 +23,12 @@
   function tick(now) {
     const delta = last ? Math.min(now - last, 50) : 0;
     last = now;
-    if (!paused && !hovered && !focused && visible && !document.hidden && now > interactedUntil) {
+    if (!paused && !focused && visible && !document.hidden && now > interactedUntil) {
       const distance = group.getBoundingClientRect().width;
       if (distance > 0 && group.children.length > 1) {
-        viewport.scrollLeft += delta * .028;
-        if (viewport.scrollLeft >= distance) viewport.scrollLeft -= distance;
+        // Keep fractional pixels in memory: scrollLeft can round each assignment to zero.
+        offset = (offset + delta * .045) % distance;
+        viewport.scrollLeft = offset;
       }
     }
     frame = requestAnimationFrame(tick);
@@ -38,6 +39,7 @@
   viewport.addEventListener('mouseleave', () => { hovered = false; });
   viewport.addEventListener('focusin', () => { focused = true; });
   viewport.addEventListener('focusout', event => { focused = viewport.contains(event.relatedTarget); });
+  viewport.addEventListener('scroll', () => { if (performance.now() < interactedUntil) offset = viewport.scrollLeft; }, { passive: true });
   for (const type of ['pointerdown', 'touchstart', 'wheel', 'keydown']) viewport.addEventListener(type, () => { interactedUntil = performance.now() + 5000; }, { passive: true });
   if ('IntersectionObserver' in window) new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }).observe(section);
   function safeUrl(value) {
@@ -84,6 +86,7 @@
       copy.querySelectorAll('img').forEach(img => img.addEventListener('error', () => { img.parentElement.hidden = true; }, { once: true }));
       track.append(copy);
     }
+    offset = 0;
     viewport.scrollLeft = 0;
     button.hidden = photos.length < 2;
     if (!frame && photos.length) frame = requestAnimationFrame(tick);

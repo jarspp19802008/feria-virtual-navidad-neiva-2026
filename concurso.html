@@ -55,5 +55,5 @@ contestIntegrity.mount('votingAccess');
 db.ref('approvedShops/_contestEntries').on('value',snapshot=>{entries=[];snapshot.forEach(child=>{entries.push({id:child.key,...child.val()})});contestIntegrity.setStores(entries.map(entry=>entry.shopId||'contest-'+entry.id));render()},error=>{document.getElementById('status').textContent='No se pudo cargar el concurso: '+error.message});
 contestIntegrity.start();
 </script>
-<script src="./contest-photo-ribbon.js?v=1"></script></body>
+<script src="./contest-photo-ribbon.js?v=2"></script></body>
 </html>
