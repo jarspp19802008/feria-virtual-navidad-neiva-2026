@@ -10,9 +10,9 @@
 #contest-photo-ribbon .cr-viewport{overflow-x:auto;overflow-y:hidden;scroll-behavior:auto;direction:ltr;border-block:1px solid #e2e8df;padding:14px 0 20px;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#a2b9a8 transparent}
 #contest-photo-ribbon .cr-track{display:flex;width:max-content;max-width:none}
 #contest-photo-ribbon .cr-group{display:flex;gap:14px;padding-right:14px;flex:none}
-#contest-photo-ribbon .cr-photo{width:300px;flex:0 0 300px;display:block;position:relative;border-radius:15px;overflow:hidden;background:#e9eee5;text-decoration:none;color:#fff;box-shadow:0 5px 14px #145b3d15}
-#contest-photo-ribbon img{display:block;width:100%;height:210px;object-fit:contain;background:#e9eee5}
-#contest-photo-ribbon .cr-photo span{display:block;background:#145b3d;padding:11px 13px;font-size:12px;font-weight:800;line-height:1.4;max-width:100%;white-space:normal;min-height:40px}
+#contest-photo-ribbon .cr-photo{width:max-content;flex:0 0 auto;display:block;position:relative;border-radius:15px;overflow:hidden;background:#e9eee5;text-decoration:none;color:#fff;box-shadow:0 5px 14px #145b3d15}
+#contest-photo-ribbon img{display:block;width:auto;height:260px;max-width:none;object-fit:contain;background:#e9eee5}
+#contest-photo-ribbon .cr-photo span{display:block;position:absolute;inset:auto 0 0;background:linear-gradient(transparent,rgba(8,35,25,.94));padding:30px 10px 10px;font-size:12px;font-weight:800;line-height:1.4;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-shadow:0 1px 3px #000}
 #contest-photo-ribbon a:focus-visible,#contest-photo-ribbon button:focus-visible,#contest-photo-ribbon .cr-viewport:focus-visible{outline:3px solid #d8ad57;outline-offset:3px}
-@media(max-width:700px){#contest-photo-ribbon{margin:22px auto;padding:17px 0}#contest-photo-ribbon .cr-heading{align-items:flex-start;flex-direction:column;gap:14px;padding-inline:5px}#contest-photo-ribbon .cr-photo{width:240px;flex-basis:240px}#contest-photo-ribbon img{height:180px}#contest-photo-ribbon .cr-actions{flex-shrink:1}}
+@media(max-width:700px){#contest-photo-ribbon{margin:22px auto;padding:17px 0}#contest-photo-ribbon .cr-heading{align-items:flex-start;flex-direction:column;gap:14px;padding-inline:5px}#contest-photo-ribbon .cr-photo{width:max-content;flex-basis:auto}#contest-photo-ribbon img{height:220px}#contest-photo-ribbon .cr-actions{flex-shrink:1}}
 
