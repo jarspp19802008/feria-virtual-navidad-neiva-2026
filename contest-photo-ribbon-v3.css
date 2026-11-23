@@ -1,0 +1,18 @@
+#contest-photo-ribbon{margin:32px auto;padding:25px 0;max-width:1180px;color:#103d2f;min-width:0}
+#contest-photo-ribbon[hidden],#contest-photo-ribbon [hidden]{display:none!important}
+#contest-photo-ribbon .cr-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 18px 18px}
+#contest-photo-ribbon .cr-eyebrow{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#a72f3b;margin:0 0 8px}
+#contest-photo-ribbon h2{font-size:clamp(22px,3vw,30px);line-height:1.15;margin:0 0 9px;letter-spacing:-.02em}
+#contest-photo-ribbon .cr-description{font-size:13px;color:#65736b;margin:0;line-height:1.5}
+#contest-photo-ribbon .cr-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;flex-shrink:0}
+#contest-photo-ribbon .cr-actions a{color:#145b3d;font-size:12px;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+#contest-photo-ribbon button{font:700 12px Manrope,Arial,sans-serif;cursor:pointer;padding:10px 14px;border:1px solid #c8d8cc;background:#fffefa;border-radius:999px;color:#145b3d}
+#contest-photo-ribbon .cr-viewport{overflow-x:auto;overflow-y:hidden;scroll-behavior:auto;direction:ltr;border-block:1px solid #e2e8df;padding:14px 0 20px;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#a2b9a8 transparent}
+#contest-photo-ribbon .cr-track{display:flex;width:max-content;max-width:none}
+#contest-photo-ribbon .cr-group{display:flex;gap:14px;padding-right:14px;flex:none}
+#contest-photo-ribbon .cr-photo{--cr-height:260px;width:calc(var(--cr-height) * var(--cr-ratio, .75));flex:0 0 auto;display:block;position:relative;border-radius:15px;overflow:hidden;background:#145b3d;text-decoration:none;color:#fff;box-shadow:0 5px 14px #145b3d15}
+#contest-photo-ribbon .cr-photo img{display:block;width:100%!important;height:var(--cr-height)!important;max-width:none!important;max-height:none!important;object-fit:cover!important;margin:0!important;padding:0!important}
+#contest-photo-ribbon .cr-photo span{display:block;position:absolute;inset:auto 0 0;background:linear-gradient(transparent,rgba(8,35,25,.94));padding:30px 10px 10px;font-size:12px;font-weight:800;line-height:1.4;max-width:100%;white-space:normal;overflow-wrap:anywhere;text-shadow:0 1px 3px #000}
+#contest-photo-ribbon a:focus-visible,#contest-photo-ribbon button:focus-visible,#contest-photo-ribbon .cr-viewport:focus-visible{outline:3px solid #d8ad57;outline-offset:3px}
+@media(max-width:700px){#contest-photo-ribbon{margin:22px auto;padding:17px 0}#contest-photo-ribbon .cr-heading{align-items:flex-start;flex-direction:column;gap:14px;padding-inline:5px}#contest-photo-ribbon .cr-photo{--cr-height:220px;flex-basis:auto}#contest-photo-ribbon .cr-actions{flex-shrink:1}}
+
